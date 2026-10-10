@@ -67,6 +67,11 @@ public class Player_Controller : MonoBehaviour
 
     private void Start()
     {
+         Time.timeScale = 0f;
+        if (EndScreen_Manager.startActive == false){
+         Time.timeScale = 1f;
+        }
+
         weapon.SetActive(false);
 
         if (playerRenderer == null) // vuyi edit
