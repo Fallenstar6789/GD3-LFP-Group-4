@@ -23,6 +23,9 @@ public class Door_Unlocker : MonoBehaviour//vuyi edit
     private bool stage1Done = false;
     private bool stage2Done = false;
 
+
+    public bool IsComplete => stage2Done;
+
     private void Update()
     {
         if (!stage1Done)
