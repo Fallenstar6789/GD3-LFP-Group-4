@@ -48,7 +48,7 @@ public class Enemy_Thrower : MonoBehaviour
     private void Start()
     {
         SetEnemyColor(baseColor);
-
+        rb.freezeRotation = true; //stop enemy from rotating after touching walls
         if (weapon != null)
         {
             weaponStartPosition = weapon.localPosition;

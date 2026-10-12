@@ -60,6 +60,7 @@ public class Enemy_Controller : MonoBehaviour
     {
         // Set both parts to their normal color
         SetEnemyColor(baseColor);
+        rb.freezeRotation = true; //stop enemy from rotating after touching walls
     }
 
 
