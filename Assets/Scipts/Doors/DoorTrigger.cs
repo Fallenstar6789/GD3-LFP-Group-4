@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour
+public class DoorTrigger : MonoBehaviour//vuyi edit
 {
     [Header("Unlock Check")]
     [SerializeField] private Door_Unlocker doorUnlocker;
