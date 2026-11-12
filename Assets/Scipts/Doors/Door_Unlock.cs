@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Door_Unlocker : MonoBehaviour//vuyi edit
+public class Door_Unlocker : MonoBehaviour
 {
     [Header("Stage 1: first enemies")]
     // The first 2 enemies. Door 1 opens when these are dead
