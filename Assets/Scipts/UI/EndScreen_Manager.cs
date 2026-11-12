@@ -3,23 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class EndScreen_Manager : MonoBehaviour
 {
-    public GameObject startscreen;//vuyi edit
-    public static bool startActive = true;//vuyi edit
+    public GameObject startscreen;
+    public static bool startActive = true;
 
-    [Header("Scenes")]
-    [SerializeField] private string level1SceneName = "Level1";
-
-    private void Start() // vuyi edit
+    private void Start() 
     {
-        if (startscreen != null) startscreen.SetActive(startActive); // vuyi edit
-    }// vuyi edit
+        if (startscreen != null) startscreen.SetActive(startActive); 
+    }
 
-    public void StartGame()//vuyi edit
+    public void StartGame()
     {
         Time.timeScale = 1f;
         startscreen.SetActive(false);
         startActive = false;
-    }//vuyi edit
+    }
 
     public void RestartGame()
     {
@@ -31,13 +28,13 @@ public class EndScreen_Manager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // vuyi edit:win screen
+   //win screen
     public void RestartFromLevel1()
     {
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
 
-        SceneManager.LoadScene(level1SceneName);
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
