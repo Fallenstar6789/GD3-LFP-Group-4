@@ -10,8 +10,8 @@ public class DoorTrigger : MonoBehaviour
     [Tooltip("Tick for final door")]
     [SerializeField] private bool isFinalDoor = false;
 
-    [Header("Win Screen")]
-    [SerializeField] private GameObject winScreen;
+    // [Header("Win Screen")]
+    // [SerializeField] private GameObject winScreen;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,9 +21,12 @@ public class DoorTrigger : MonoBehaviour
 
         if (isFinalDoor)
         {
-            if (winScreen != null) winScreen.SetActive(true);
-            Time.timeScale = 0f;
-            return;
+            //if (winScreen != null) winScreen.SetActive(true);
+            //Time.timeScale = 0f;
+            //return;
+         SceneManager.LoadScene(2);
+         return;
+
         }
 
         // Level 1 door: load the next scene
