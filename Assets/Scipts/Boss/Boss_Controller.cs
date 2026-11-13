@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using System.Collections;
 
@@ -49,6 +48,11 @@ public class Boss_Controller : MonoBehaviour
     [Header("Bullet Hell")]
     public BulletSpawner bulletSpawner;
     public float bulletHellWindup = 0.6f;
+
+    [Header("Attack Sounds")]               
+    public AudioSource attackAudioSource;    
+    public AudioClip bulletSound;            // bullet hell clip
+    public AudioClip arrowSound;             
 
     [Header("Retreat")]
     public float retreatSpeed = 6f;
@@ -275,6 +279,10 @@ public class Boss_Controller : MonoBehaviour
             yield break;
         }
 
+        
+        if (attackAudioSource != null && arrowSound != null)   
+            attackAudioSource.PlayOneShot(arrowSound);         
+
         GameObject spawnedArrow = Instantiate(
             arrowPrefab,
             arrowSpawnPoint.position,
@@ -327,6 +335,10 @@ public class Boss_Controller : MonoBehaviour
 
         if (bulletSpawner != null)
         {
+            // play the bullet sound right as the spiral starts
+            if (attackAudioSource != null && bulletSound != null)   
+                attackAudioSource.PlayOneShot(bulletSound);         
+
             yield return StartCoroutine(
                 bulletSpawner.FireOneSpiral()
             );

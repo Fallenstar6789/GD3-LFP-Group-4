@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using System.Collections;
 
@@ -25,6 +24,9 @@ public class Enemy_Thrower : MonoBehaviour
     public float attackRecovery = 0.5f;
     public float attackCooldown = 1.5f;
 
+    [Header("Sound")]                       
+    public AudioSource audioSource;         
+
     [Header("Enemy Colors")]
     public SpriteRenderer cubeRenderer;
     public SpriteRenderer triRenderer;
@@ -49,6 +51,11 @@ public class Enemy_Thrower : MonoBehaviour
     {
         SetEnemyColor(baseColor);
         rb.freezeRotation = true; //stop enemy from rotating after touching walls
+
+        
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
         if (weapon != null)
         {
             weaponStartPosition = weapon.localPosition;
@@ -153,6 +160,10 @@ public class Enemy_Thrower : MonoBehaviour
         // --------------------------------
         // 3. LAUNCH WEAPON
         // --------------------------------
+
+        
+        if (audioSource != null)
+            audioSource.Play();
 
         Vector3 startWorldPosition = weapon.position;
 
