@@ -4983,6 +4983,7 @@ MonoBehaviour:
   readyColor: {r: 1, g: 1, b: 1, a: 1}
   songs:
   - {fileID: 800029472}
+  - {fileID: 575582917}
   slowPitch: 0.4
   normalPitch: 1
   pitchChangeSpeed: 10
