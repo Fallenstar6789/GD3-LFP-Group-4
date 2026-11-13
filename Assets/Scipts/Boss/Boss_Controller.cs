@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 
@@ -27,7 +28,6 @@ public class Boss_Controller : MonoBehaviour
     public float detectionRange = 8f;
     public float lockOnTime = 0.5f;
     public float moveSpeed = 3f;
-    public float rotationOffset = -90f;
 
     [Header("Attack Ranges")]
     public float dashRange = 3f;
@@ -39,6 +39,9 @@ public class Boss_Controller : MonoBehaviour
     public float dashSpeed = 12f;
     public float dashDuration = 0.25f;
 
+    [Header("Dash Active Object")]
+    public GameObject dashActiveObject;
+
     [Header("Arrow Attack")]
     public GameObject arrowPrefab;
     public Transform arrowSpawnPoint;
@@ -48,10 +51,6 @@ public class Boss_Controller : MonoBehaviour
     [Header("Bullet Hell")]
     public BulletSpawner bulletSpawner;
     public float bulletHellWindup = 0.6f;
-
-    [Header("Attack Sounds")]
-    public AudioSource attackAudioSource;
-    public AudioClip arrowSound;            
 
     [Header("Retreat")]
     public float retreatSpeed = 6f;
@@ -73,7 +72,9 @@ public class Boss_Controller : MonoBehaviour
 
     private bool lockedOn = false;
     private bool isBusy = false;
+
     private float detectionTimer = 0f;
+    private float originalRotation;
 
     private Vector2 moveDirection;
     private Vector2 attackDirection;
@@ -81,10 +82,17 @@ public class Boss_Controller : MonoBehaviour
 
     private MovementState movementState = MovementState.Idle;
 
+    // =====================================
+    // INITIAL SETUP
+    // =====================================
+
     private void Awake()
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+            originalRotation = rb.rotation;
     }
 
     private void Start()
@@ -94,8 +102,17 @@ public class Boss_Controller : MonoBehaviour
         if (bulletSpawner != null)
             bulletSpawner.automaticFire = false;
 
+        // Start with the base boss design
         SetBossVisual(bossBase);
+
+        // Dash object must start inactive
+        if (dashActiveObject != null)
+            dashActiveObject.SetActive(false);
     }
+
+    // =====================================
+    // PLAYER DETECTION AND CHASE
+    // =====================================
 
     private void Update()
     {
@@ -107,7 +124,6 @@ public class Boss_Controller : MonoBehaviour
             player.position
         );
 
-        // DETECT AND LOCK ON
         if (!lockedOn)
         {
             if (distance <= detectionRange)
@@ -132,7 +148,7 @@ public class Boss_Controller : MonoBehaviour
         if (isBusy)
             return;
 
-        // FOLLOW PLAYER
+        // Follow player without rotating
         moveDirection =
             ((Vector2)player.position - rb.position).normalized;
 
@@ -144,6 +160,10 @@ public class Boss_Controller : MonoBehaviour
         }
     }
 
+    // =====================================
+    // MOVEMENT (FIXED ROTATION)
+    // =====================================
+
     private void FixedUpdate()
     {
         if (rb == null)
@@ -153,7 +173,6 @@ public class Boss_Controller : MonoBehaviour
         {
             case MovementState.Chase:
                 rb.linearVelocity = moveDirection * moveSpeed;
-                RotateTowards(moveDirection);
                 break;
 
             case MovementState.Dash:
@@ -163,14 +182,20 @@ public class Boss_Controller : MonoBehaviour
             case MovementState.Retreat:
                 rb.linearVelocity =
                     retreatDirection * retreatSpeed;
-                RotateTowards(retreatDirection);
                 break;
 
             default:
                 rb.linearVelocity = Vector2.zero;
                 break;
         }
+
+        // Maintain original boss rotation
+        rb.MoveRotation(originalRotation);
     }
+
+    // =====================================
+    // ATTACK RANGE
+    // =====================================
 
     private float GetAttackRange()
     {
@@ -189,14 +214,17 @@ public class Boss_Controller : MonoBehaviour
         return dashRange;
     }
 
+    // =====================================
+    // ATTACK CYCLE
+    // =====================================
+
     private IEnumerator AttackCycle()
     {
         isBusy = true;
         movementState = MovementState.Stopped;
         rb.linearVelocity = Vector2.zero;
 
-        // Lock attack direction BEFORE windup.
-        // The player can dodge during preparation.
+        // Lock direction before attack windup
         attackDirection =
             ((Vector2)player.position - rb.position).normalized;
 
@@ -218,17 +246,16 @@ public class Boss_Controller : MonoBehaviour
                 break;
         }
 
-        // RETREAT AFTER EVERY ATTACK
+        // Retreat after attacking
         yield return StartCoroutine(Retreat());
 
-        // CHANGE MODE
+        // Switch to next attack
         ChangeMode();
 
         movementState = MovementState.Stopped;
 
         yield return new WaitForSeconds(modeChangePause);
 
-        // CHASE AGAIN
         if (player != null)
         {
             moveDirection =
@@ -245,17 +272,30 @@ public class Boss_Controller : MonoBehaviour
 
     private IEnumerator DashAttack()
     {
+        // Windup
         SetBossVisual(bossDashWindup);
+        movementState = MovementState.Stopped;
+
+        if (dashActiveObject != null)
+            dashActiveObject.SetActive(false);
 
         yield return new WaitForSeconds(dashWindup);
 
+        // Begin dash
         SetBossVisual(bossDash);
         movementState = MovementState.Dash;
 
+        if (dashActiveObject != null)
+            dashActiveObject.SetActive(true);
+
         yield return new WaitForSeconds(dashDuration);
 
+        // End dash
         movementState = MovementState.Stopped;
         rb.linearVelocity = Vector2.zero;
+
+        if (dashActiveObject != null)
+            dashActiveObject.SetActive(false);
     }
 
     // =====================================
@@ -265,6 +305,7 @@ public class Boss_Controller : MonoBehaviour
     private IEnumerator ArrowAttack()
     {
         SetBossVisual(bossArrowWindup);
+        movementState = MovementState.Stopped;
 
         yield return new WaitForSeconds(arrowWindup);
 
@@ -275,11 +316,9 @@ public class Boss_Controller : MonoBehaviour
             Debug.LogWarning(
                 "Boss arrow prefab or spawn point is missing."
             );
+
             yield break;
         }
-
-        if (attackAudioSource != null && arrowSound != null)
-            attackAudioSource.PlayOneShot(arrowSound);
 
         GameObject spawnedArrow = Instantiate(
             arrowPrefab,
@@ -296,7 +335,7 @@ public class Boss_Controller : MonoBehaviour
             arrowScript.Launch(attackDirection);
         }
 
-        // Ignore collisions between arrow and boss
+        // Prevent arrow colliding with boss
         Collider2D[] arrowColliders =
             spawnedArrow.GetComponentsInChildren<Collider2D>();
 
@@ -314,8 +353,7 @@ public class Boss_Controller : MonoBehaviour
             }
         }
 
-        // Return immediately so boss retreats
-        // while the arrow continues travelling.
+        // Arrow moves independently
     }
 
     // =====================================
@@ -325,15 +363,14 @@ public class Boss_Controller : MonoBehaviour
     private IEnumerator BulletHellAttack()
     {
         SetBossVisual(bossBulletHellWindup);
+        movementState = MovementState.Stopped;
 
         yield return new WaitForSeconds(bulletHellWindup);
 
         SetBossVisual(bossBulletHell);
-        movementState = MovementState.Stopped;
 
         if (bulletSpawner != null)
         {
-           
             yield return StartCoroutine(
                 bulletSpawner.FireOneSpiral()
             );
@@ -420,7 +457,7 @@ public class Boss_Controller : MonoBehaviour
     }
 
     // =====================================
-    // VISUAL GAMEOBJECT SWITCHING
+    // VISUAL STATE SWITCHING
     // =====================================
 
     private void SetBossVisual(GameObject activeVisual)
@@ -439,53 +476,55 @@ public class Boss_Controller : MonoBehaviour
         foreach (GameObject visual in visuals)
         {
             if (visual != null)
-                visual.SetActive(visual == activeVisual);
+            {
+                visual.SetActive(
+                    visual == activeVisual
+                );
+            }
         }
     }
 
     // =====================================
-    // ROTATION
+    // CLEANUP
     // =====================================
-
-    private void RotateTowards(Vector2 direction)
-    {
-        if (direction.sqrMagnitude < 0.001f)
-            return;
-
-        float angle = Mathf.Atan2(
-            direction.y,
-            direction.x
-        ) * Mathf.Rad2Deg + rotationOffset;
-
-        rb.rotation = angle;
-    }
 
     private void OnDisable()
     {
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
+
+        if (dashActiveObject != null)
+            dashActiveObject.SetActive(false);
     }
+
+    // =====================================
+    // DEBUG GIZMOS
+    // =====================================
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(
-            transform.position, detectionRange
+            transform.position,
+            detectionRange
         );
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(
-            transform.position, dashRange
+            transform.position,
+            dashRange
         );
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(
-            transform.position, arrowRange
+            transform.position,
+            arrowRange
         );
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(
-            transform.position, bulletHellRange
+            transform.position,
+            bulletHellRange
         );
     }
 }

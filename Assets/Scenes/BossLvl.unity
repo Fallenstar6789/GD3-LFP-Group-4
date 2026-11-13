@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 186110621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arrowspawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 322086933}
   - component: {fileID: 322086932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Throw_Atk_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553648965}
   - component: {fileID: 553648964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Base_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 575582914}
   - component: {fileID: 575582913}
   - component: {fileID: 575582917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boss_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +984,6 @@ MonoBehaviour:
   detectionRange: 8
   lockOnTime: 0.5
   moveSpeed: 3
-  rotationOffset: -90
   dashRange: 3
   arrowRange: 5
   bulletHellRange: 6
@@ -997,8 +996,6 @@ MonoBehaviour:
   arrowSpeed: 12
   bulletSpawner: {fileID: 990982841}
   bulletHellWindup: 0.6
-  attackAudioSource: {fileID: 575582917}
-  arrowSound: {fileID: 8300000, guid: 6677dbc66f8d4214fb4981cadbc8e76b, type: 3}
   retreatSpeed: 6
   retreatDistance: 4
   retreatMaxDuration: 2
@@ -1698,7 +1695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670320032}
   - component: {fileID: 670320031}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Dash_WndUp_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2628,7 +2625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 990982840}
   - component: {fileID: 990982841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2684,7 +2681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1022351973}
   - component: {fileID: 1022351972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Spiral_WndUp_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2962,7 +2959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144897545}
   - component: {fileID: 1144897544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Throw_WndUp_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3331,7 +3328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327350137}
   - component: {fileID: 1327350136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Spiral_Atk_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4264,7 +4261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703589776}
   - component: {fileID: 1703589775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LFP_BossDesign_Dash_Atk_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
