@@ -996,6 +996,9 @@ MonoBehaviour:
   arrowSpawnPoint: {fileID: 186110621}
   arrowWindup: 0.4
   arrowSpeed: 12
+  audioSource: {fileID: 575582917}
+  arrowFireSound: {fileID: 8300000, guid: 6677dbc66f8d4214fb4981cadbc8e76b, type: 3}
+  arrowFireVolume: 1
   bulletSpawner: {fileID: 990982841}
   bulletHellWindup: 0.6
   retreatSpeed: 6

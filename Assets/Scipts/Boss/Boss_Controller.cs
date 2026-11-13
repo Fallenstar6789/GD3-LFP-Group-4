@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using System.Collections;
 
@@ -48,6 +47,11 @@ public class Boss_Controller : MonoBehaviour
     public float arrowWindup = 0.4f;
     public float arrowSpeed = 12f;
 
+    [Header("Arrow Audio")]
+    public AudioSource audioSource;
+    public AudioClip arrowFireSound;
+    [Range(0f, 1f)] public float arrowFireVolume = 1f;
+
     [Header("Bullet Hell")]
     public BulletSpawner bulletSpawner;
     public float bulletHellWindup = 0.6f;
@@ -90,6 +94,9 @@ public class Boss_Controller : MonoBehaviour
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
         if (rb != null)
             originalRotation = rb.rotation;
@@ -334,6 +341,9 @@ public class Boss_Controller : MonoBehaviour
             arrowScript.speed = arrowSpeed;
             arrowScript.Launch(attackDirection);
         }
+
+        if (audioSource != null && arrowFireSound != null)
+            audioSource.PlayOneShot(arrowFireSound, arrowFireVolume);
 
         // Prevent arrow colliding with boss
         Collider2D[] arrowColliders =
