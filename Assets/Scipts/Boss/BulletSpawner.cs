@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using System.Collections;
 
@@ -29,6 +28,12 @@ public class BulletSpawner : MonoBehaviour
     [Header("Boss Spiral")]
     public float spiralDuration = 3f;
     public float spiralRotations = 1f;
+
+    [Header("Sound")]                                   
+    public AudioSource audioSource;                     
+    public AudioClip bulletSound;                      
+    [Range(0f, 1f)]
+    public float bulletVolume = 0.5f;                 
 
     private float timer = 0f;
     private bool spiralActive = false;
@@ -119,6 +124,10 @@ public class BulletSpawner : MonoBehaviour
             transform.position,
             transform.rotation
         );
+
+      
+        if (audioSource != null && bulletSound != null)     
+            audioSource.PlayOneShot(bulletSound, bulletVolume);  
 
         Bullet bulletScript =
             spawnedBullet.GetComponent<Bullet>();

@@ -998,7 +998,6 @@ MonoBehaviour:
   bulletSpawner: {fileID: 990982841}
   bulletHellWindup: 0.6
   attackAudioSource: {fileID: 575582917}
-  bulletSound: {fileID: 8300000, guid: b14f4998e1712a840972105786a9ba22, type: 3}
   arrowSound: {fileID: 8300000, guid: 6677dbc66f8d4214fb4981cadbc8e76b, type: 3}
   retreatSpeed: 6
   retreatDistance: 4
@@ -2672,6 +2671,9 @@ MonoBehaviour:
   automaticSpinSpeed: 60
   spiralDuration: 3
   spiralRotations: 1
+  audioSource: {fileID: 575582917}
+  bulletSound: {fileID: 8300000, guid: de387b443758f91478f48b6e4876be74, type: 3}
+  bulletVolume: 0.5
 --- !u!1 &1022351971
 GameObject:
   m_ObjectHideFlags: 0
