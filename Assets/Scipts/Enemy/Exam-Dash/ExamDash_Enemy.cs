@@ -28,10 +28,15 @@ public class ExamDash_Enemy : MonoBehaviour
     [Tooltip("Time before the enemy can dash again")]
     public float dashCooldown = 1.5f;
 
-    [Header("Enemy Visual States")]
-    public GameObject baseState;
-    public GameObject windupState;
-    public GameObject attackState;
+    // CHANGED: replaced the three GameObject fields (baseState, windupState,
+    // attackState) with one SpriteRenderer and three Sprite assets.
+    [Header("Enemy Visual States (Sprites)")]
+    [Tooltip("The SpriteRenderer whose sprite gets swapped. Auto-found if left empty.")]
+    public SpriteRenderer enemyRenderer;
+
+    public Sprite baseSprite;
+    public Sprite windupSprite;
+    public Sprite attackSprite;
 
     [Header("Rotation")]
     public float rotationOffset = -90f;
@@ -62,8 +67,12 @@ public class ExamDash_Enemy : MonoBehaviour
         if (rb != null)
             rb.freezeRotation = true;
 
-        // Start with base design active
-        SetEnemyState(baseState);
+        // NEW: find the SpriteRenderer automatically if it wasn't assigned
+        if (enemyRenderer == null)
+            enemyRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        // CHANGED: start with the base sprite (was SetEnemyState(baseState))
+        SetEnemySprite(baseSprite);
     }
 
     // =====================================
@@ -182,8 +191,8 @@ public class ExamDash_Enemy : MonoBehaviour
         isPreparingDash = true;
         rb.linearVelocity = Vector2.zero;
 
-        // Show windup design
-        SetEnemyState(windupState);
+        // CHANGED: swap to the windup sprite (was SetEnemyState(windupState))
+        SetEnemySprite(windupSprite);
 
         yield return new WaitForSeconds(dashWindup);
 
@@ -200,8 +209,8 @@ public class ExamDash_Enemy : MonoBehaviour
         isPreparingDash = false;
         isDashing = true;
 
-        // Show attack design
-        SetEnemyState(attackState);
+        // CHANGED: swap to the attack sprite (was SetEnemyState(attackState))
+        SetEnemySprite(attackSprite);
 
         yield return new WaitForSeconds(dashDuration);
 
@@ -212,8 +221,8 @@ public class ExamDash_Enemy : MonoBehaviour
         isDashing = false;
         rb.linearVelocity = Vector2.zero;
 
-        // Return to base design
-        SetEnemyState(baseState);
+        // CHANGED: back to the base sprite (was SetEnemyState(baseState))
+        SetEnemySprite(baseSprite);
 
         // =================================
         // 5. RECOVERY
@@ -248,16 +257,16 @@ public class ExamDash_Enemy : MonoBehaviour
     // VISUAL STATE SWITCHING
     // =====================================
 
-    private void SetEnemyState(GameObject activeState)
+    // CHANGED: replaced SetEnemyState(GameObject), which toggled three
+    // GameObjects on/off, with a single sprite swap on one SpriteRenderer.
+    // If a sprite slot is left empty, the current sprite is kept so the
+    // enemy never turns invisible by accident.
+    private void SetEnemySprite(Sprite newSprite)
     {
-        if (baseState != null)
-            baseState.SetActive(baseState == activeState);
+        if (enemyRenderer == null || newSprite == null)
+            return;
 
-        if (windupState != null)
-            windupState.SetActive(windupState == activeState);
-
-        if (attackState != null)
-            attackState.SetActive(attackState == activeState);
+        enemyRenderer.sprite = newSprite;
     }
 
     // =====================================

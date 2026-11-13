@@ -150,8 +150,8 @@ GameObject:
   - component: {fileID: 5844554163408806802}
   - component: {fileID: 3917585848791695592}
   - component: {fileID: 6179682262337738493}
-  - component: {fileID: 3138082246564442198}
   - component: {fileID: 6073884172132314769}
+  - component: {fileID: 7093832120721992296}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -169,7 +169,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.18048434}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8365864238902414821}
@@ -219,12 +219,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.028301716, g: 0.08049162, b: 1, a: 1}
+  m_Sprite: {fileID: -6034872195337141953, guid: 3647b804cbe41f8478128c419c5f4f4b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.12, y: 2.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -268,8 +268,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2.12, y: 2.32}
+    newSize: {x: 2.12, y: 2.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -303,7 +303,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3138082246564442198
+--- !u!114 &6073884172132314769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,7 +312,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6511394884060664659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5122d8dd01ae947488d5b8c42f5dfe0e, type: 3}
+  m_Script: {fileID: 11500000, guid: cc8814540004d8c4296290ad28314a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7093832120721992296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511394884060664659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af66ff2066d51fd4a91dad8250800884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -326,20 +338,8 @@ MonoBehaviour:
   dashWindup: 0.4
   dashRecoveryTime: 0.75
   dashCooldown: 1.5
-  cubeRenderer: {fileID: 5844554163408806802}
-  triRenderer: {fileID: 58351140585809850}
-  baseColor: {r: 0.08627451, g: 0, b: 1, a: 1}
-  attackColor: {r: 1, g: 0, b: 0, a: 1}
+  enemyRenderer: {fileID: 0}
+  baseSprite: {fileID: -6034872195337141953, guid: 3647b804cbe41f8478128c419c5f4f4b, type: 3}
+  windupSprite: {fileID: -8558752493925598156, guid: 3ded82daa3db13f40839a48c19841a75, type: 3}
+  attackSprite: {fileID: -3279533708752880745, guid: 89a2f934d92e24d48b7d7e91b0c1e118, type: 3}
   rotationOffset: -90
---- !u!114 &6073884172132314769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6511394884060664659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8814540004d8c4296290ad28314a45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
