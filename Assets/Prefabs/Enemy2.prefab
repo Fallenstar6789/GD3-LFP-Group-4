@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 4387167885457000544}
   - component: {fileID: 5317196182759084955}
   - component: {fileID: 317753282443580296}
-  - component: {fileID: 6691767336687946043}
+  - component: {fileID: 8913713252985008395}
   - component: {fileID: 7882488502873565296}
   - component: {fileID: 4136927725273888278}
   m_Layer: 0
@@ -308,8 +308,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.42386684, g: 0.17910288, b: 0.4415095, a: 1}
+  m_Sprite: {fileID: -3161782936304085681, guid: 669ca3d874631b247bbcd8572666a560, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -357,7 +357,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.92, y: 1.72}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -392,7 +392,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6691767336687946043
+--- !u!114 &8913713252985008395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4112032826457842746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e7137faf66c05c48972431f0e29ce3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7337953e6d33e22448e5e7816304f6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -409,7 +409,7 @@ MonoBehaviour:
   rb: {fileID: 317753282443580296}
   detectionRange: 8
   lockOnTime: 0.5
-  weapon: {fileID: 2334499241977303141}
+  weapon: {fileID: 854167324755501522}
   attackRange: 4
   weaponDistance: 5
   weaponSpeed: 12
@@ -423,10 +423,10 @@ MonoBehaviour:
   weaponRadius: 0.2
   blockedRetryDelay: 0.3
   audioSource: {fileID: 4136927725273888278}
-  cubeRenderer: {fileID: 4387167885457000544}
-  triRenderer: {fileID: 0}
-  baseColor: {r: 0.42352945, g: 0.1764706, b: 0.43921572, a: 1}
-  attackColor: {r: 1, g: 0, b: 0, a: 1}
+  enemyRenderer: {fileID: 0}
+  baseSprite: {fileID: -3161782936304085681, guid: 669ca3d874631b247bbcd8572666a560, type: 3}
+  windupSprite: {fileID: 8976974236862220322, guid: 8ea9886fc4144ed408cbc95988c4bc01, type: 3}
+  attackSprite: {fileID: -9216848854281120294, guid: 3024faf3a6ca67f4bb76be39ed2e0fa0, type: 3}
   rotationOffset: -90
 --- !u!114 &7882488502873565296
 MonoBehaviour:

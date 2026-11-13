@@ -3,9 +3,6 @@ using System.Collections;
 
 public class ExamThrow_Enemy : MonoBehaviour
 
-
-
-
 {
     [Header("Player")]
     public Transform player;
@@ -28,13 +25,29 @@ public class ExamThrow_Enemy : MonoBehaviour
     public float attackRecovery = 0.5f;
     public float attackCooldown = 1.5f;
 
+    // NEW: line of sight / wall collision settings
+    [Header("Line of Sight")]
+    [Tooltip("Layer(s) that block attacks: walls, pillars, closed doors. Do NOT include the Player or enemies.")]
+    public LayerMask wallLayer;
+
+    [Tooltip("Approx. radius of the weapon, used so it stops at walls instead of clipping into them")]
+    public float weaponRadius = 0.2f;
+
+    [Tooltip("How long to wait before trying again if the attack was cancelled by a wall")]
+    public float blockedRetryDelay = 0.3f;
+
     [Header("Sound")]
     public AudioSource audioSource;
 
-    [Header("Enemy Visual States")]
-    public GameObject baseState;
-    public GameObject windupState;
-    public GameObject attackState;
+    // CHANGED: replaced the three GameObject fields (baseState, windupState,
+    // attackState) with one SpriteRenderer and three Sprite assets.
+    [Header("Enemy Visual States (Sprites)")]
+    [Tooltip("The SpriteRenderer whose sprite gets swapped. Auto-found if left empty.")]
+    public SpriteRenderer enemyRenderer;
+
+    public Sprite baseSprite;
+    public Sprite windupSprite;
+    public Sprite attackSprite;
 
     [Header("Rotation")]
     public float rotationOffset = -90f;
@@ -68,8 +81,21 @@ public class ExamThrow_Enemy : MonoBehaviour
         if (weapon != null)
             weaponStartPosition = weapon.localPosition;
 
-        // Start with base design active
-        SetEnemyState(baseState);
+        // NEW: find the SpriteRenderer automatically if it wasn't assigned.
+        // The weapon is excluded, because it may have its own SpriteRenderer
+        // and we don't want to swap the weapon's sprite by accident.
+        if (enemyRenderer == null)
+        {
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                if (weapon != null && sr.transform.IsChildOf(weapon)) continue;
+                enemyRenderer = sr;
+                break;
+            }
+        }
+
+        // CHANGED: start with the base sprite (was SetEnemyState(baseState))
+        SetEnemySprite(baseSprite);
     }
 
     // =====================================
@@ -110,7 +136,10 @@ public class ExamThrow_Enemy : MonoBehaviour
             moveDirection =
                 ((Vector2)player.position - rb.position).normalized;
 
-            if (distanceToPlayer <= attackRange && canAttack)
+            // CHANGED: added HasLineOfSight() so the wind-up never starts
+            // when a wall is between the enemy and the player.
+            // The enemy keeps chasing until it can see the player.
+            if (distanceToPlayer <= attackRange && canAttack && HasLineOfSight())
             {
                 StartCoroutine(Attack());
             }
@@ -151,6 +180,21 @@ public class ExamThrow_Enemy : MonoBehaviour
         }
     }
 
+    // NEW: returns true only if no wall lies on the straight line
+    // between this enemy and the player.
+    private bool HasLineOfSight()
+    {
+        if (player == null) return false;
+
+        RaycastHit2D hit = Physics2D.Linecast(
+            rb.position,
+            player.position,
+            wallLayer
+        );
+
+        return hit.collider == null;
+    }
+
     // =====================================
     // THROW ATTACK
     // =====================================
@@ -179,15 +223,31 @@ public class ExamThrow_Enemy : MonoBehaviour
         // 2. WINDUP
         // =================================
 
-        SetEnemyState(windupState);
+        // CHANGED: swap to the windup sprite (was SetEnemyState(windupState))
+        SetEnemySprite(windupSprite);
 
         yield return new WaitForSeconds(attackWindup);
+
+        // NEW: second line-of-sight check right before firing.
+        // The player may have ducked behind a wall during the wind-up.
+        // If so, cancel the attack instead of firing into the wall.
+        if (!HasLineOfSight())
+        {
+            SetEnemySprite(baseSprite);
+            isAttacking = false;
+
+            yield return new WaitForSeconds(blockedRetryDelay);
+
+            canAttack = true;
+            yield break;
+        }
 
         // =================================
         // 3. LAUNCH WEAPON
         // =================================
 
-        SetEnemyState(attackState);
+        // CHANGED: swap to the attack sprite (was SetEnemyState(attackState))
+        SetEnemySprite(attackSprite);
 
         if (audioSource != null)
             audioSource.Play();
@@ -198,27 +258,65 @@ public class ExamThrow_Enemy : MonoBehaviour
             startWorldPosition +
             (Vector3)(attackDirection * weaponDistance);
 
+        // NEW: tracks whether the weapon hit a wall on the way out
+        bool hitWall = false;
+
         // Weapon travels forward
         while (Vector3.Distance(
             weapon.position,
             targetPosition
         ) > 0.05f)
         {
-            weapon.position = Vector3.MoveTowards(
+            // CHANGED: work out where the weapon WOULD move this frame first
+            Vector3 nextPosition = Vector3.MoveTowards(
                 weapon.position,
                 targetPosition,
                 weaponSpeed * Time.deltaTime
             );
 
+            // NEW: sweep a circle along this frame's movement.
+            // If it touches a wall, stop the weapon at the point of contact.
+            Vector2 travel = nextPosition - weapon.position;
+
+            RaycastHit2D wallHit = Physics2D.CircleCast(
+                weapon.position,
+                weaponRadius,
+                travel.normalized,
+                travel.magnitude,
+                wallLayer
+            );
+
+            if (wallHit.collider != null)
+            {
+                // centroid = where the centre of the circle was at impact
+                weapon.position = new Vector3(
+                    wallHit.centroid.x,
+                    wallHit.centroid.y,
+                    weapon.position.z
+                );
+
+                hitWall = true;
+                break; // stop flying outward, go straight to return phase
+            }
+
+            weapon.position = nextPosition;
+
             yield return null;
         }
 
-        weapon.position = targetPosition;
+        // CHANGED: only snap to the full target if the weapon did NOT hit a wall.
+        // Previously this always ran, which teleported the weapon through walls.
+        if (!hitWall)
+        {
+            weapon.position = targetPosition;
+        }
 
         // =================================
         // 4. RETURN WEAPON
         // =================================
 
+        // Unchanged. The weapon returns along the path it came from,
+        // which is clear, so it works for both full and wall-stopped throws.
         while (Vector3.Distance(
             weapon.position,
             startWorldPosition
@@ -239,8 +337,8 @@ public class ExamThrow_Enemy : MonoBehaviour
         // 5. RECOVERY
         // =================================
 
-        // Return to base design
-        SetEnemyState(baseState);
+        // CHANGED: back to the base sprite (was SetEnemyState(baseState))
+        SetEnemySprite(baseSprite);
 
         yield return new WaitForSeconds(attackRecovery);
 
@@ -259,16 +357,16 @@ public class ExamThrow_Enemy : MonoBehaviour
     // VISUAL STATE SWITCHING
     // =====================================
 
-    private void SetEnemyState(GameObject activeState)
+    // CHANGED: replaced SetEnemyState(GameObject), which toggled three
+    // GameObjects on/off, with a single sprite swap on one SpriteRenderer.
+    // If a sprite slot is left empty, the current sprite is kept so the
+    // enemy never turns invisible by accident.
+    private void SetEnemySprite(Sprite newSprite)
     {
-        if (baseState != null)
-            baseState.SetActive(baseState == activeState);
+        if (enemyRenderer == null || newSprite == null)
+            return;
 
-        if (windupState != null)
-            windupState.SetActive(windupState == activeState);
-
-        if (attackState != null)
-            attackState.SetActive(attackState == activeState);
+        enemyRenderer.sprite = newSprite;
     }
 
     // =====================================
@@ -300,4 +398,3 @@ public class ExamThrow_Enemy : MonoBehaviour
         );
     }
 }
-
