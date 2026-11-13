@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6837161522290741921, guid: eb24d8ba7d0043d40bbccff6cfb992fe, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -803,6 +807,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -811,6 +827,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1154,6 +1186,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -1165,6 +1209,22 @@ PrefabInstance:
     - target: {fileID: 6691767336687946043, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1713,6 +1773,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -1721,6 +1793,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2768,6 +2856,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -2776,6 +2876,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2833,6 +2949,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -2841,6 +2969,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3847,6 +3991,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -3858,6 +4014,22 @@ PrefabInstance:
     - target: {fileID: 6691767336687946043, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4195,6 +4367,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -4206,6 +4390,22 @@ PrefabInstance:
     - target: {fileID: 6691767336687946043, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5759,6 +5959,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2 (1)
@@ -5767,6 +5979,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5977,6 +6205,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -5985,6 +6225,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6331,6 +6587,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -6339,6 +6607,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7148,6 +7432,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -7156,6 +7452,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7346,6 +7658,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -7357,6 +7681,22 @@ PrefabInstance:
     - target: {fileID: 6691767336687946043, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7608,6 +7948,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -7616,6 +7968,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8006,6 +8374,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764953928032442812, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4112032826457842746, guid: ffd879c9226614947b53bee24c493081, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -8014,6 +8394,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4944776063905811622, guid: 936fdd039c2fef9439d002f30ef151f7, type: 3}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742471186751527941, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
