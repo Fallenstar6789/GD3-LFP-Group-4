@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using TMPro;
 using System.Collections;
 
 public class Boss_Health : MonoBehaviour
@@ -7,6 +8,9 @@ public class Boss_Health : MonoBehaviour
     [Header("Boss Health")]
     public int maxHealth = 10;
     public int currentHealth;
+
+    [Header("Boss Health UI")]
+    public TMP_Text bossHealthText;
 
     [Header("Damage Settings")]
     public float damageCooldown = 0.3f;
@@ -21,6 +25,10 @@ public class Boss_Health : MonoBehaviour
     private SpriteRenderer[] allRenderers;
     private Color[] originalColors;
 
+    // =====================================
+    // INITIAL SETUP
+    // =====================================
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -34,7 +42,13 @@ public class Boss_Health : MonoBehaviour
         {
             originalColors[i] = allRenderers[i].color;
         }
+
+        UpdateHealthUI();
     }
+
+    // =====================================
+    // DAMAGE DETECTION
+    // =====================================
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +57,10 @@ public class Boss_Health : MonoBehaviour
             TakeDamage(1);
         }
     }
+
+    // =====================================
+    // TAKE DAMAGE
+    // =====================================
 
     public void TakeDamage(int damage)
     {
@@ -56,6 +74,9 @@ public class Boss_Health : MonoBehaviour
 
         Debug.Log("Boss Health: " + currentHealth);
 
+        // Update UI whenever health changes
+        UpdateHealthUI();
+
         if (currentHealth <= 0)
         {
             Die();
@@ -66,15 +87,37 @@ public class Boss_Health : MonoBehaviour
         }
     }
 
+    // =====================================
+    // UPDATE HEALTH UI
+    // =====================================
+
+    private void UpdateHealthUI()
+    {
+        if (bossHealthText != null)
+        {
+            bossHealthText.text =
+                "BOSS HEALTH: " +
+                currentHealth +
+                " / " +
+                maxHealth;
+        }
+    }
+
+    // =====================================
+    // DAMAGE FEEDBACK
+    // =====================================
+
     private IEnumerator DamageFeedback()
     {
         canTakeDamage = false;
 
-        // Flash all visual states
+        // Flash all boss visual states
         for (int i = 0; i < allRenderers.Length; i++)
         {
             if (allRenderers[i] != null)
+            {
                 allRenderers[i].color = damageColor;
+            }
         }
 
         yield return new WaitForSeconds(
@@ -85,7 +128,9 @@ public class Boss_Health : MonoBehaviour
         for (int i = 0; i < allRenderers.Length; i++)
         {
             if (allRenderers[i] != null)
+            {
                 allRenderers[i].color = originalColors[i];
+            }
         }
 
         float remainingCooldown = Mathf.Max(
@@ -100,11 +145,18 @@ public class Boss_Health : MonoBehaviour
         canTakeDamage = true;
     }
 
+    // =====================================
+    // BOSS DEATH
+    // =====================================
+
     private void Die()
     {
         isDead = true;
 
         Debug.Log("Boss Defeated!");
+
+        // UI shows 0 / 10 before boss is destroyed
+        UpdateHealthUI();
 
         Destroy(gameObject);
     }
