@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 454616480}
   - component: {fileID: 454616482}
   - component: {fileID: 454616481}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TX Props Rune Pillar X3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2218,7 @@ GameObject:
   - component: {fileID: 583174529}
   - component: {fileID: 583174531}
   - component: {fileID: 583174530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TX Props Rune Pillar X3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2464,7 +2464,7 @@ GameObject:
   - component: {fileID: 613526202}
   - component: {fileID: 613526204}
   - component: {fileID: 613526203}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TX Props Rune Pillar X3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3338,7 +3338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927184716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Maze_Walls2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3672,7 +3672,7 @@ GameObject:
   - component: {fileID: 981583185}
   - component: {fileID: 981583187}
   - component: {fileID: 981583186}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4414,7 +4414,7 @@ GameObject:
   - component: {fileID: 1222157026}
   - component: {fileID: 1222157028}
   - component: {fileID: 1222157027}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5099,7 +5099,7 @@ GameObject:
   - component: {fileID: 1366485799}
   - component: {fileID: 1366485801}
   - component: {fileID: 1366485800}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TX Props Rune Pillar X3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5233,7 +5233,7 @@ GameObject:
   - component: {fileID: 1438867218}
   - component: {fileID: 1438867220}
   - component: {fileID: 1438867219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5451,7 +5451,7 @@ GameObject:
   - component: {fileID: 1464274261}
   - component: {fileID: 1464274263}
   - component: {fileID: 1464274262}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6634,7 +6634,7 @@ GameObject:
   - component: {fileID: 1680827897}
   - component: {fileID: 1680827899}
   - component: {fileID: 1680827898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TX Props Rune Pillar X3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7697,7 +7697,7 @@ GameObject:
   - component: {fileID: 2120269044}
   - component: {fileID: 2120269046}
   - component: {fileID: 2120269045}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7831,7 +7831,7 @@ GameObject:
   - component: {fileID: 2125112411}
   - component: {fileID: 2125112413}
   - component: {fileID: 2125112412}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

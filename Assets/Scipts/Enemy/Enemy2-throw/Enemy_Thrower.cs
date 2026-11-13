@@ -24,8 +24,19 @@ public class Enemy_Thrower : MonoBehaviour
     public float attackRecovery = 0.5f;
     public float attackCooldown = 1.5f;
 
-    [Header("Sound")]                       
-    public AudioSource audioSource;         
+    
+    [Header("Line of Sight")]
+    [Tooltip("Layersthat block attacks: walls, pillars, closed doors. ")]
+    public LayerMask wallLayer;
+
+    [Tooltip("Approx. radius of the weapon, used so it stops at walls instead of clipping into them")]
+    public float weaponRadius = 0.2f;
+
+    [Tooltip("How long to wait before trying again if the attack was cancelled by a wall")]
+    public float blockedRetryDelay = 0.3f;
+
+    [Header("Sound")]
+    public AudioSource audioSource;
 
     [Header("Enemy Colors")]
     public SpriteRenderer cubeRenderer;
@@ -52,7 +63,6 @@ public class Enemy_Thrower : MonoBehaviour
         SetEnemyColor(baseColor);
         rb.freezeRotation = true; //stop enemy from rotating after touching walls
 
-        
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
 
@@ -95,7 +105,8 @@ public class Enemy_Thrower : MonoBehaviour
             moveDirection =
                 ((Vector2)player.position - rb.position).normalized;
 
-            if (distanceToPlayer <= attackRange && canAttack)
+            
+            if (distanceToPlayer <= attackRange && canAttack && HasLineOfSight())
             {
                 StartCoroutine(Attack());
             }
@@ -127,6 +138,19 @@ public class Enemy_Thrower : MonoBehaviour
         }
     }
 
+    
+    private bool HasLineOfSight()
+    {
+        if (player == null) return false;
+
+        RaycastHit2D hit = Physics2D.Linecast(
+            rb.position,
+            player.position,
+            wallLayer
+        );
+
+        return hit.collider == null;
+    }
 
     private IEnumerator Attack()
     {
@@ -157,11 +181,22 @@ public class Enemy_Thrower : MonoBehaviour
 
         yield return new WaitForSeconds(attackWindup);
 
+        
+        if (!HasLineOfSight())
+        {
+            SetEnemyColor(baseColor);
+            isAttacking = false;
+
+            yield return new WaitForSeconds(blockedRetryDelay);
+
+            canAttack = true;
+            yield break;
+        }
+
         // --------------------------------
         // 3. LAUNCH WEAPON
         // --------------------------------
 
-        
         if (audioSource != null)
             audioSource.Play();
 
@@ -172,24 +207,59 @@ public class Enemy_Thrower : MonoBehaviour
             startWorldPosition +
             (Vector3)(attackDirection * weaponDistance);
 
+       
+        bool hitWall = false;
+
         while (Vector3.Distance(
             weapon.position, targetPosition) > 0.05f)
         {
-            weapon.position = Vector3.MoveTowards(
+            
+            Vector3 nextPosition = Vector3.MoveTowards(
                 weapon.position,
                 targetPosition,
                 weaponSpeed * Time.deltaTime
             );
 
+            
+            Vector2 travel = nextPosition - weapon.position;
+
+            RaycastHit2D wallHit = Physics2D.CircleCast(
+                weapon.position,
+                weaponRadius,
+                travel.normalized,
+                travel.magnitude,
+                wallLayer
+            );
+
+            if (wallHit.collider != null)
+            {
+                // centroid = where the centre of the circle was at impact
+                weapon.position = new Vector3(
+                    wallHit.centroid.x,
+                    wallHit.centroid.y,
+                    weapon.position.z
+                );
+
+                hitWall = true;
+                break; // stop flying outward, go straight to return phase
+            }
+
+            weapon.position = nextPosition;
+
             yield return null;
         }
 
-        weapon.position = targetPosition;
+        
+        if (!hitWall)
+        {
+            weapon.position = targetPosition;
+        }
 
         // --------------------------------
         // 4. RETURN WEAPON
         // --------------------------------
 
+        
         while (Vector3.Distance(
             weapon.position, startWorldPosition) > 0.05f)
         {
@@ -222,7 +292,6 @@ public class Enemy_Thrower : MonoBehaviour
 
         canAttack = true;
     }
-
 
     private void SetEnemyColor(Color newColor)
     {

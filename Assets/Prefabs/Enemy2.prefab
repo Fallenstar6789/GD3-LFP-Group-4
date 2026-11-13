@@ -417,6 +417,11 @@ MonoBehaviour:
   attackWindup: 0.4
   attackRecovery: 0.5
   attackCooldown: 1.5
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  weaponRadius: 0.2
+  blockedRetryDelay: 0.3
   audioSource: {fileID: 4136927725273888278}
   cubeRenderer: {fileID: 4387167885457000544}
   triRenderer: {fileID: 0}
@@ -449,7 +454,7 @@ AudioSource:
   m_Resource: {fileID: 8300000, guid: 6677dbc66f8d4214fb4981cadbc8e76b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.40000018
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
