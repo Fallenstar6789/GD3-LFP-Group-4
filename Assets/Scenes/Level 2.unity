@@ -255,7 +255,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6461562254442792116, guid: eb24d8ba7d0043d40bbccff6cfb992fe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1273,6 +1274,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 220320795}
+    - target: {fileID: 8913713252985008395, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3009610086658320612, guid: ffd879c9226614947b53bee24c493081, type: 3}
@@ -4162,6 +4167,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1273331706}
+    - target: {fileID: 8913713252985008395, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3009610086658320612, guid: ffd879c9226614947b53bee24c493081, type: 3}
@@ -4551,6 +4560,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1378035833}
+    - target: {fileID: 8913713252985008395, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3009610086658320612, guid: ffd879c9226614947b53bee24c493081, type: 3}
@@ -5308,6 +5321,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 7093832120721992296, guid: 87be2a7e94f44a4489a4ca21ded0721e, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7365,6 +7382,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1235389548}
+    - target: {fileID: 7093832120721992296, guid: 87be2a7e94f44a4489a4ca21ded0721e, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7957,6 +7978,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 989591750}
+    - target: {fileID: 8913713252985008395, guid: ffd879c9226614947b53bee24c493081, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3009610086658320612, guid: ffd879c9226614947b53bee24c493081, type: 3}

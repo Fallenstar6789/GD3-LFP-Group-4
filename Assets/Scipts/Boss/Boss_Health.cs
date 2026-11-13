@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using TMPro;
 using System.Collections;
@@ -11,6 +10,9 @@ public class Boss_Health : MonoBehaviour
 
     [Header("Boss Health UI")]
     public TMP_Text bossHealthText;
+
+    [Header("Win Screen")]
+    public GameObject winScreen;
 
     [Header("Damage Settings")]
     public float damageCooldown = 0.3f;
@@ -42,6 +44,9 @@ public class Boss_Health : MonoBehaviour
         {
             originalColors[i] = allRenderers[i].color;
         }
+
+        if (winScreen != null)
+            winScreen.SetActive(false);
 
         UpdateHealthUI();
     }
@@ -157,6 +162,9 @@ public class Boss_Health : MonoBehaviour
 
         // UI shows 0 / 10 before boss is destroyed
         UpdateHealthUI();
+
+        if (winScreen != null)
+            winScreen.SetActive(true);
 
         Destroy(gameObject);
     }

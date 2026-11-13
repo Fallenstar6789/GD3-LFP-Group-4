@@ -1254,6 +1254,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   bossHealthText: {fileID: 1062449158}
+  winScreen: {fileID: 732900748}
   damageCooldown: 0.3
   damageColor: {r: 1, g: 1, b: 1, a: 1}
   damageFlashDuration: 0.1
